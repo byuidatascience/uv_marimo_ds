@@ -106,7 +106,7 @@ uv run python my_script.py
 ### UV Command Not Found (Mac/Linux)
 After installing UV, restart your terminal or run:
 ```bash
-source $HOME/.local/bin/env
+source $HOME/.cargo/env
 ```
 
 ### UV Command Not Found (Windows)
