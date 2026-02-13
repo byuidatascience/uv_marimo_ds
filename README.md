@@ -110,10 +110,16 @@ source $HOME/.cargo/env
 ```
 
 ### UV Command Not Found (Windows)
-After installing UV, restart PowerShell. If still not working, UV is likely installed at:
+After installing UV, restart PowerShell. If still not working, you may need to add UV to your PATH.
+
+**📖 See our detailed [Windows PATH Setup Guide](WINDOWS_PATH_SETUP.md) for step-by-step instructions.**
+
+Quick fix - Run this in PowerShell as Administrator:
+```powershell
+$uvPath = "$env:USERPROFILE\.cargo\bin"
+[Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$uvPath", "User")
 ```
-%USERPROFILE%\.cargo\bin\uv.exe
-```
+Then restart PowerShell.
 
 ### Python Version Issues
 UV will automatically install Python 3.11 as specified in `.python-version`. If you need a different version, edit that file.
@@ -122,10 +128,11 @@ UV will automatically install Python 3.11 as specified in `.python-version`. If 
 
 ```
 uv_marimo_ds/
-├── .python-version      # Specifies Python version (3.11)
-├── pyproject.toml       # Project dependencies and metadata
-├── example.py           # Example Marimo notebook
-└── README.md           # This file
+├── .python-version         # Specifies Python version (3.11)
+├── pyproject.toml          # Project dependencies and metadata
+├── example.py              # Example Marimo notebook
+├── README.md               # This file
+└── WINDOWS_PATH_SETUP.md   # Windows PATH troubleshooting guide
 ```
 
 ## Learning Resources
