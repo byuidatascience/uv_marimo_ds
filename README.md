@@ -23,18 +23,30 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-### 2. Clone and Run (One-line command)
+### 2. Download/Clone folder
 
-After installing UV, run this single command to get everything set up and running:
+#### Non-Git users
 
-**Mac OS / Linux:**
+1. [Download this repository](https://github.com/byuidatascience/uv_marimo_ds/archive/refs/heads/main.zip)
+2. Unzip the zipped folder into your desired location
+
+#### Git users
+
+Fork this repository and clone it to your computer.
+
+
+### 3. Run One-line start up 
+
+After installing UV and downloading/cloning the folder. Open a terminal in the respective folder and run this single command to start work:
+
 ```bash
-git clone https://github.com/byuidatascience/uv_marimo_ds.git && cd uv_marimo_ds && uv run marimo edit example.py
+uv run marimo edit example.py
 ```
 
-**Windows (PowerShell):**
-```powershell
-git clone https://github.com/byuidatascience/uv_marimo_ds.git; cd uv_marimo_ds; uv run marimo edit example.py
+If you would like to avoid the not quite errors that get printed you can run
+
+```bash
+./run_marimo.sh 
 ```
 
 That's it! 🎉
@@ -44,7 +56,7 @@ That's it! 🎉
 When you ran `uv run marimo edit example.py`:
 1. UV automatically installed Python 3.11 (if not already present)
 2. UV created a virtual environment
-3. UV installed all required packages (marimo, pandas, numpy, etc.)
+3. UV installed all required packages (marimo, polars, plotly, etc.)
 4. Marimo started and opened the example notebook in your browser
 
 ## Working with the Environment
@@ -76,17 +88,12 @@ dependencies = [
 ]
 ```
 
-Then run any `uv run` command and UV will automatically install the new packages.
+### Configuring your Marimo
 
-### Using Python Directly
-```bash
-uv run python
-```
+- You can move panels between the [Sidebar and the Developer Panel](https://docs.marimo.io/guides/editor_features/panels/?h=sidebar). 
+- You can [configure Marimo](https://docs.marimo.io/guides/configuration/#user-configuration) for your specific user needs.
+- [Read their user guides](https://docs.marimo.io/guides/)
 
-### Running Python Scripts
-```bash
-uv run python my_script.py
-```
 
 ## What is UV?
 
@@ -140,7 +147,3 @@ uv_marimo_ds/
 - [UV Documentation](https://docs.astral.sh/uv/)
 - [Marimo Documentation](https://docs.marimo.io/)
 - [Marimo Tutorial](https://docs.marimo.io/getting_started/tutorial.html)
-
-## License
-
-See [LICENSE](LICENSE) file for details.
